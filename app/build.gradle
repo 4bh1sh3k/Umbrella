@@ -78,20 +78,15 @@ dependencies {
 
     // retrofit
     implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
-    // implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
-    // implementation "com.squareup.retrofit2:adapter-rxjava2:$version_retrofit"
+    implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
 
     // glide
-    // implementation "com.github.bumptech.glide:glide:$version_glide"
-    // annotationProcessor "com.github.bumptech.glide:compiler:$version_glide"
-
-    // rxjava
-    // implementation "io.reactivex.rxjava2:rxjava:$version_rxjava2"
-    // implementation "io.reactivex.rxjava2:rxandroid:$version_rxandroid"
+    implementation "com.github.bumptech.glide:glide:$version_glide"
+    annotationProcessor "com.github.bumptech.glide:compiler:$version_glide"
 
     // moshi
-    // implementation "com.squareup.moshi:moshi:$version_moshi"
-    // kapt "com.squareup.moshi:moshi-kotlin-codegen:$version_moshi"
+    implementation "com.squareup.moshi:moshi:$version_moshi"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$version_moshi"
 
     // test
     testImplementation "junit:junit:$version_junit"

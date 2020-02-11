@@ -15,4 +15,7 @@ class BaseActivity : AppCompatActivity() {
         setupActionBarWithNavController(findNavController(R.id.fragment_nav_host))
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        return findNavController(R.id.fragment_nav_host).navigateUp()
+    }
 }

@@ -15,36 +15,60 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/text_welcome"
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="@{viewModel.welcomeText}"
-            app:layout_constraintBottom_toTopOf="@id/button_get_started"
-            app:layout_constraintEnd_toEndOf="@id/button_get_started"
-            app:layout_constraintStart_toStartOf="@id/button_get_started"
-            tools:text="Hello, world!" />
-
-        <ProgressBar
-            android:id="@+id/progress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:visibility="@{!viewModel.isActionAvailable}"
-            app:layout_constraintBottom_toTopOf="@id/button_get_started"
-            app:layout_constraintEnd_toEndOf="@id/button_get_started"
-            app:layout_constraintStart_toStartOf="@id/button_get_started" />
-
-        <Button
-            android:id="@+id/button_get_started"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:enabled="@{viewModel.isActionAvailable}"
-            android:text="@string/text_get_started"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Hello, world!"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <Button
+            android:id="@+id/forecastButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:onClick="@{view -> viewModel.showForecast(view)}"
+            android:text="Show Weekly Forecast"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView" />
+
+        <ImageView
+            android:id="@+id/weatherIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/forecastButton"
+            app:webUri="@{viewModel.weather.icon}" />
+
+        <TextView
+            android:id="@+id/temperatureText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@{viewModel.weather.temperature}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/weatherIcon" />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.isBusy}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="gone" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
